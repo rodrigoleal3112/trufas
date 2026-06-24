@@ -1,87 +1,388 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+```css
+/* ==========================
+   TRUFAS - CHOCOLATES PREMIUM
+========================== */
+
+
+:root{
+    --bg:#ecb024;
+    --text:#f12308;
+    --card:#89eb1a;
+    --header:#0aec28;
+    --gold:#D4AF37;
+    --gold-hover:#b8962f;
+    --shadow:rgba(0,0,0,0.15);
 }
 
-body {
-    background-color: #f9f6f0;
-    color: #333;
+
+body.dark{
+    --bg:#458aa5;
+    --text:hsla(0, 0%, 5%, 0.993);
+    --card:#2093c9;
+    --header:#4b49dd;
+    --shadow:rgba(90, 233, 202, 0.726);
 }
 
-header {
-    background-color: #4a2c2a;
-    color: #fff;
-    text-align: center;
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.logo {
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 50%;
+
+html{
+    scroll-behavior:smooth;
 }
 
-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
 }
 
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
+
+/* HEADER */
+header{
+    background:var(--header);
+    color:rgb(3, 71, 6);
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:999;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+
+.logo{
+    font-size:2rem;
+    font-weight:bold;
 }
 
-.card {
-    background-color: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease;
-    text-align: center;
-    padding-bottom: 1.5rem;
+
+nav{
+    display:flex;
+    gap:20px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+
+nav a{
+    color:rgb(4, 59, 2)
+    text-decoration:none;
+    font-weight:bold;
 }
 
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover; /* Garante que as fotos não fiquem esticadas ou amassadas */
+
+nav a:hover{
+    color:var(--gold);
 }
 
-.card h3 {
-    margin: 1rem 0 0.5rem 0;
-    color: #4a2c2a;
-    font-size: 1.4rem;
+
+#tema-btn{
+    background:var(--gold);
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.card p {
-    padding: 0 1rem;
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.4;
+
+/* HERO */
+.hero{
+    min-height:85vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+
+    background:
+    linear-gradient(
+        rgba(17, 17, 17, 0.904),
+        rgba(22, 22, 22, 0.76)
+    ),
+    url('fotos/banner.jpg');
+
+
+    background-size:cover;
+    background-position:center;
 }
 
-footer {
-    background-color: #4a2c2a;
-    color: #fff;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: 3rem;
-    font-size: 0.9rem;
+
+.hero h1{
+    font-size:4rem;
+    color:#08c4e6;
+    text-shadow:3px 3px 8px rgba(65, 43, 38, 0.103);
+    margin-bottom:20px;
 }
+
+
+.hero p{
+    color:rgb(220, 241, 29);
+    font-size:1.4rem;
+    text-shadow:2px 2px 6px rgba(121, 87, 134, 0.9);
+}
+
+
+/* SEÇÕES */
+section{
+    padding:80px 20px;
+}
+
+
+.titulo{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:2.5rem;
+}
+
+
+/* PRODUTOS */
+.cards{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+
+.card{
+    background:var(--card);
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px var(--shadow);
+    transition:.3s;
+}
+
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+    transition:.4s;
+}
+
+
+.card:hover img{
+    transform:scale(1.05);
+}
+
+
+.card h3{
+    margin-bottom:10px;
+}
+
+
+.card p{
+    margin-bottom:15px;
+}
+
+
+.preco{
+    color:#eb370a;
+    font-size:1.3rem;
+    font-weight:bold;
+}
+
+
+/* BOTÕES */
+.botoes-acoes{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+
+.botoes-acoes button{
+    flex:1;
+}
+
+
+.comprar{
+    background:var(--gold);
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+.comprar:hover{
+    background:var(--gold-hover);
+}
+
+
+.remover{
+    background:#88291c;
+    color:rgba(92, 241, 6, 0.979);
+    border:none;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+
+.remover:hover{
+    background:#5f2019;
+}
+
+
+/* SOBRE */
+.sobre-conteudo{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    gap:40px;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+
+.sobre-texto{
+    flex:1;
+    min-width:300px;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+
+.sobre-imagem-container{
+    flex:1;
+    text-align:center;
+}
+
+
+.imagem-sobre-banner{
+    width:100%;
+    max-width:450px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(163, 204, 204, 0.966);
+}
+
+
+/* CONTATO */
+.contato{
+    text-align:center;
+}
+
+
+.contato p{
+    margin:10px;
+    font-size:1.1rem;
+}
+
+
+/* FOOTER */
+footer{
+    background:var(--header);
+    color:rgb(141, 22, 22);
+    text-align:center;
+    padding:25px;
+}
+
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#25D366;
+    color:rgb(240, 6, 18);
+    text-decoration:none;
+    padding:15px 20px;
+    border-radius:50px;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+    z-index:1000;
+}
+
+
+/* CARRINHO */
+.carrinho{
+    position:fixed;
+    top:90px;
+    right:20px;
+    background:var(--gold);
+    color:rgb(238, 53, 7);
+    padding:10px 15px;
+    border-radius:15px;
+    font-weight:bold;
+    z-index:1000;
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+
+.carrinho button{
+    background:rgb(5, 245, 57);
+    color:rgb(241, 6, 6);
+    border:none;
+    padding:6px 12px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+/* RESPONSIVO */
+@media(max-width:768px){
+
+
+    header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+
+    .hero h1{
+        font-size:2.5rem;
+    }
+
+
+    .hero p{
+        font-size:1rem;
+    }
+
+
+    .titulo{
+        font-size:2rem;
+    }
+
+
+    .sobre-conteudo{
+        flex-direction:column;
+    }
+
+
+}
+```
+
+
+
+
+
